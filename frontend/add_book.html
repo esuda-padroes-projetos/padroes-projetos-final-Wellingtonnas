@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastrar Livro</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Header -->
+    <header
+      class="bg-green-600 p-4 text-white text-center text-2xl font-bold shadow"
+    >
+      ➕ Cadastrar Livro
+    </header>
+
+    <main class="p-6 max-w-lg mx-auto">
+      <!-- Botão Voltar -->
+      <a
+        href="index.html"
+        class="inline-block mb-6 text-green-600 font-semibold hover:underline"
+      >
+        ← Voltar para Home
+      </a>
+
+      <!-- Formulário -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <label class="block mb-3">
+          <span class="text-gray-700 font-medium">Título:</span>
+          <input
+            id="title"
+            type="text"
+            class="w-full p-3 border rounded"
+            placeholder="Ex: Dom Quixote"
+          />
+        </label>
+
+        <label class="block mb-3">
+          <span class="text-gray-700 font-medium">Autor:</span>
+          <input
+            id="author"
+            type="text"
+            class="w-full p-3 border rounded"
+            placeholder="Ex: Machado de Assis"
+          />
+        </label>
+
+        <label class="block mb-3">
+          <span class="text-gray-700 font-medium">Gênero:</span>
+          <input
+            id="genre"
+            type="text"
+            class="w-full p-3 border rounded"
+            placeholder="Ex: Romance"
+          />
+        </label>
+
+        <button
+          onclick="addBook()"
+          class="bg-green-500 hover:bg-green-700 text-white px-4 py-3 rounded w-full mt-4"
+        >
+          Cadastrar Livro
+        </button>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/books.js"></script>
+
+    <script>
+      async function addBook() {
+        const title = document.getElementById("title").value.trim();
+        const author = document.getElementById("author").value.trim();
+        const genre = document.getElementById("genre").value.trim();
+
+        if (!title || !author || !genre) {
+          alert("Preencha todos os campos.");
+          return;
+        }
+
+        try {
+          await apiPost("/books", {
+            title,
+            author,
+            copies_total: 1, // ou um campo adicional no form
+            genres: [genre],
+          });
+
+          alert("Livro cadastrado com sucesso!");
+          window.location.href = "books.html";
+        } catch (err) {
+          console.error(err);
+          alert("Erro ao cadastrar livro. Veja o console para detalhes.");
+        }
+      }
+    </script>
+  </body>
+</html>

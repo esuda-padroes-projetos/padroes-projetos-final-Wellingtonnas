@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca - Livros</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-blue-600 p-4 text-white text-center text-2xl font-bold shadow">
+        📚 Lista de Livros
+    </header>
+
+    <main class="p-6">
+
+        <!-- Botão Voltar -->
+        <a href="index.html" class="inline-block mb-6 text-blue-600 font-semibold hover:underline">
+            ← Voltar para Home
+        </a>
+
+        <!-- Busca por gênero -->
+        <div class="flex space-x-4 mb-6">
+            <input id="genreInput" 
+                   type="text" 
+                   placeholder="Buscar por gênero..."
+                   class="p-3 rounded border w-64">
+
+            <button onclick="searchByGenre()"
+                    class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-3 rounded">
+                Buscar
+            </button>
+
+            <button onclick="loadBooks()"
+                    class="bg-gray-500 hover:bg-gray-700 text-white px-4 py-3 rounded">
+                Todos os livros
+            </button>
+        </div>
+
+        <!-- Tabela -->
+        <div class="overflow-x-auto">
+            <table class="w-full bg-white shadow rounded-lg overflow-hidden">
+                <thead class="bg-blue-600 text-white">
+                    <tr>
+                        <th class="p-3 text-left">ID</th>
+                        <th class="p-3 text-left">Título</th>
+                        <th class="p-3 text-left">Autor</th>
+                        <th class="p-3 text-left">Gênero</th>
+                        <th class="p-3 text-left">Disponível</th>
+                    </tr>
+                </thead>
+
+                <tbody id="booksTable" class="divide-y"></tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/books.js"></script>
+</body>
+</html>

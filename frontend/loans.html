@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Empréstimos</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Header -->
+    <header
+      class="bg-yellow-600 p-4 text-white text-center text-2xl font-bold shadow"
+    >
+      🔄 Controle de Empréstimos
+    </header>
+
+    <main class="p-6">
+      <!-- Botão Voltar -->
+      <a
+        href="index.html"
+        class="inline-block mb-6 text-yellow-700 font-semibold hover:underline"
+      >
+        ← Voltar para Home
+      </a>
+
+      <!-- Formulário de empréstimo -->
+      <div class="bg-white shadow rounded-lg p-6 max-w-xl mx-auto mb-10">
+        <h2 class="text-xl font-bold mb-4">Realizar Empréstimo</h2>
+
+        <label class="block mb-3">
+          <span class="font-medium">ID do Livro:</span>
+          <input
+            id="loanBookId"
+            type="number"
+            class="w-full p-3 border rounded"
+          />
+        </label>
+
+        <label class="block mb-3">
+          <span class="font-medium">Nome do Usuário:</span>
+          <input id="loanUser" type="text" class="w-full p-3 border rounded" />
+        </label>
+
+        <button
+          onclick="createLoan()"
+          class="bg-yellow-500 hover:bg-yellow-700 text-white px-4 py-3 rounded w-full mt-4"
+        >
+          Registrar Empréstimo
+        </button>
+      </div>
+
+      <!-- Lista de empréstimos ativos -->
+      <h2 class="text-2xl font-bold mb-4">📋 Empréstimos Ativos</h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white shadow rounded-lg overflow-hidden">
+          <thead class="bg-yellow-600 text-white">
+            <tr>
+              <th class="p-3">ID</th>
+              <th class="p-3">Livro</th>
+              <th class="p-3">Usuário</th>
+              <th class="p-3">Data</th>
+              <th class="p-3">Ação</th>
+            </tr>
+          </thead>
+
+          <tbody id="loansTable" class="divide-y"></tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/books.js"></script>
+  </body>
+</html>

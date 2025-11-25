@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Biblioteca - Home</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100">
+    <header
+      class="bg-blue-600 p-4 text-white text-center text-2xl font-bold shadow"
+    >
+      Sistema de Biblioteca
+    </header>
+
+    <main class="flex flex-col items-center mt-10 space-y-6">
+      <a
+        href="books.html"
+        class="w-64 text-center bg-blue-500 hover:bg-blue-700 text-white p-4 rounded-xl text-xl shadow"
+      >
+        📚 Gerenciar Livros
+      </a>
+
+      <a
+        href="add_book.html"
+        class="w-64 text-center bg-green-500 hover:bg-green-700 text-white p-4 rounded-xl text-xl shadow"
+      >
+        ➕ Cadastrar Livro
+      </a>
+
+      <a
+        href="loans.html"
+        class="w-64 text-center bg-yellow-500 hover:bg-yellow-700 text-white p-4 rounded-xl text-xl shadow"
+      >
+        🔄 Empréstimos
+      </a>
+    </main>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/books.js"></script>
+  </body>
+</html>
